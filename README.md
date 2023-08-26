@@ -20,7 +20,7 @@
 
 ## Docker:
 * system prerequisites: Docker and Docker Compose
-* if you tried local setup before this, paste content from `settings_docker.py` to `settings.py`
+* if you tried local setup before, paste content from `settings_docker.py` to `settings.py`
 * [http://127.0.0.1/api/schema/docs/](http://127.0.0.1/api/schema/docs/)
 ```
 sudo docker-compose build
