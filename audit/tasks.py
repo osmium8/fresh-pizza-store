@@ -17,21 +17,21 @@ def update_status(order_id: str, status: OrderTrackHistory.Status):
 
     if status == OrderTrackHistory.Status.ACCEPTED:
         tracking.accepted_at = current_time
-        minute = datetime.utcnow() + timedelta(seconds=1)
+        minute = datetime.utcnow() + timedelta(minutes=1)
         update_status.apply_async(
             (order_id, OrderTrackHistory.Status.PREPARING), eta=minute
         )
     elif status == OrderTrackHistory.Status.PREPARING:
         tracking.started_preparing_at = current_time
-        two_minutes = datetime.utcnow() + timedelta(seconds=1)
+        three_minutes = datetime.utcnow() + timedelta(minutes=3)
         update_status.apply_async(
-            (order_id, OrderTrackHistory.Status.DISPATCHED), eta=two_minutes
+            (order_id, OrderTrackHistory.Status.DISPATCHED), eta=three_minutes
         )
     elif status == OrderTrackHistory.Status.DISPATCHED:
         tracking.dispatched_at = current_time
-        two_minutes = datetime.utcnow() + timedelta(seconds=1)
+        five_minutes = datetime.utcnow() + timedelta(minutes=5)
         update_status.apply_async(
-            (order_id, OrderTrackHistory.Status.DELIVERED), eta=two_minutes
+            (order_id, OrderTrackHistory.Status.DELIVERED), eta=five_minutes
         )
     elif status == OrderTrackHistory.Status.DELIVERED:
         tracking.delivered_at = current_time
