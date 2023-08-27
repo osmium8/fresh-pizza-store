@@ -8,7 +8,7 @@
 * `pizzeria/management/commands/setup_test_data.py` creates test data, can be used as a management command
 * category.required_amount field + serializer validation is used to impose business restriction of 1 Base, 1 Cheese, 5 Toppings
 * A celery tasks at `audit/tasks.py` recursively updates the order status
-* `db_design.png` shows all tables and relations. [dbdiagram](https://dbdiagram.io/d/64ea34a902bd1c4a5e746c00)
+* `db_design.png` shows all tables and relations, source DBML at [dbdiagram/pizza](https://dbdiagram.io/d/64ea34a902bd1c4a5e746c00).
 
 #### Here's how frontend gonna use few of the APIs:
 
